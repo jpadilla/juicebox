@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+DEBUG = (true if ENV['DEBUG'] and ENV["DEBUG"].downcase == 'true') || false
+REPO_URL = ("." if DEBUG) || "https://raw.github.com/jpadilla/dev-box/master"
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -18,28 +21,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
-  config.vm.provision "shell", path: "./provisioning/base.sh"
+  config.vm.provision "shell", path: "#{REPO_URL}/provisioning/base.sh"
 
   PROVISION_SCRIPTS = [
     # Version control
-    'git',
+    "git",
 
     # Languages
-    'python',
-    'python3',
-    'node',
+    "python",
+    "python3",
+    "node",
 
     # Data store
-    'mongodb',
-    'redis',
-    'postgresql'
+    "mongodb",
+    "redis",
+    "postgresql"
   ]
 
-  ENV_PROVISION_SCRIPTS = (ENV['PROVISION'] || '').split(',')
+  ENV_PROVISION_SCRIPTS = (ENV["PROVISION"] || "").split(",")
 
   PROVISION_SCRIPTS.each do |script|
     if ENV_PROVISION_SCRIPTS.empty? or ENV_PROVISION_SCRIPTS.include? script
-      config.vm.provision "shell", path: "./provisioning/#{script}.sh"
+      config.vm.provision "shell", path: "#{REPO_URL}/provisioning/#{script}.sh"
     end
   end
 
