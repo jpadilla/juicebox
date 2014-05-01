@@ -18,9 +18,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
-  PROVISION_SCRIPTS = [
-    'base',
+  config.vm.provision "shell", path: "./provisioning/base.sh"
 
+  PROVISION_SCRIPTS = [
     # Version control
     'git',
 
@@ -35,8 +35,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     'postgresql'
   ]
 
+  ENV_PROVISION_SCRIPTS = (ENV['PROVISION'] || '').split(',')
+
   PROVISION_SCRIPTS.each do |script|
-    config.vm.provision "shell", path: "./provisioning/#{script}.sh"
+    if ENV_PROVISION_SCRIPTS.empty? or ENV_PROVISION_SCRIPTS.include? script
+      config.vm.provision "shell", path: "./provisioning/#{script}.sh"
+    end
   end
 
 end
