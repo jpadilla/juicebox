@@ -31,6 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     "python",
     "python3",
     "node",
+    "go",
 
     # Data store
     "mongodb",

@@ -25,5 +25,4 @@ $ DEBUG=true PROVISION="python,git" vagrant up
 ## TODO
 - Ruby/RVM
 - Node/NVM
-- Go
 - Python virtualenv setup
