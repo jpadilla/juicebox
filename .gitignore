@@ -26,3 +26,8 @@ Temporary Items
 
 ### Vagrant ###
 .vagrant/
+
+# Packer
+packer_cache/
+output-*
+*.box

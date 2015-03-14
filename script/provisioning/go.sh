@@ -7,6 +7,4 @@ set -e
 set -x
 
 # Install Go
-sudo apt-add-repository -y ppa:duh/golang
-sudo apt-get update
-sudo apt-get -y install golang
+sudo apt-get -y install golang-go
