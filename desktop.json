@@ -1,6 +1,6 @@
 {
   "builders": [{
-    "vm_name": "ubuntu1404",
+    "vm_name": "{{user `vm_name`}}-{{user `version`}}",
     "type": "virtualbox-iso",
     "format": "ova",
     "boot_command": [
@@ -18,7 +18,7 @@
       "passwd/username={{ user `ssh_username` }} ",
       "initrd=/install/initrd.gz -- <enter>"
     ],
-    "disk_size": 10140,
+    "disk_size": 40960,
     "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
     "guest_os_type": "Ubuntu_64",
     "hard_drive_interface": "sata",
@@ -30,7 +30,7 @@
       "{{ user `iso_path` }}/{{ user `iso_name` }}",
       "{{ user `iso_url` }}"
     ],
-    "shutdown_command": "echo '{{ user `ssh_password` }}' | sudo -S shutdown -P now",
+    "shutdown_command": "echo '{{ user `ssh_password` }}'|sudo -S shutdown -P now",
     "ssh_password": "{{ user `ssh_password` }}",
     "ssh_username": "{{ user `ssh_username` }}",
     "ssh_wait_timeout": "10000s",
@@ -48,17 +48,8 @@
         "1"
       ]
     ],
-    "virtualbox_version_file": ".vbox_version"
-  }, {
-    "vm_name": "ubuntu1404",
-    "type": "virtualbox-ovf",
-    "source_path": "output-virtualbox-iso/ubuntu1404.ova",
-    "headless": "{{ user `headless` }}",
-    "shutdown_command": "echo '{{ user `ssh_password` }}' | sudo -S shutdown -P now",
-    "ssh_password": "{{ user `ssh_password` }}",
-    "ssh_username": "{{ user `ssh_username` }}",
-    "ssh_wait_timeout": "10000s",
-    "format": "ova"
+    "virtualbox_version_file": ".vbox_version",
+    "output_directory": "output-{{user `vm_name`}}"
   }],
   "provisioners": [{
     "environment_vars": [
@@ -68,9 +59,10 @@
       "SSH_USERNAME={{user `ssh_username`}}",
       "SSH_PASSWORD={{user `ssh_password`}}"
     ],
-    "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+    "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
     "scripts": [
       "script/update.sh",
+      "script/desktop.sh",
       "script/vagrant.sh",
       "script/sshd.sh",
       "script/vmtool.sh",
@@ -82,20 +74,23 @@
       "script/provisioning/mongodb.sh",
       "script/provisioning/redis.sh",
       "script/provisioning/postgresql.sh",
-      "script/minimize.sh",
+      "script/provisioning/desktop-apps.sh",
+      "script/cleanup-desktop.sh",
       "script/cleanup.sh"
     ],
     "type": "shell"
   }],
   "post-processors": [{
-    "type": "vagrant",
     "keep_input_artifact": true,
-    "output": "box/{{.Provider}}/ubuntu1404-{{user `version`}}.box",
-    "compression_level": 9,
+    "output": "box/{{.Provider}}/{{user `vm_name`}}-{{user `version`}}.box",
+    "type": "vagrant",
+    "vagrantfile_template": "tpl/vagrantfile-desktop.tpl",
+    "compression_level": 9
   }],
   "variables": {
+    "vm_name": "dev-box-desktop",
     "cleanup_pause": "0",
-    "headless": true,
+    "headless": false,
     "install_vagrant_key": true,
     "iso_checksum": "3bfa6eac84d527380d0cc52db9092cde127f161e",
     "iso_name": "ubuntu-14.04.2-server-amd64.iso",
@@ -105,7 +100,7 @@
     "ssh_fullname": "vagrant",
     "ssh_password": "vagrant",
     "ssh_username": "vagrant",
-    "update": false,
-    "version": "0.1.0"
+    "update": true,
+    "version": "0.0.1"
   }
 }
