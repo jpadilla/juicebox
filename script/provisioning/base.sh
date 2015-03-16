@@ -1,16 +1,16 @@
 #!/bin/bash -eux
 
-# Set UTC localtime
+echo "==> Setting UTC localtime"
 sudo ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 
-# Update APT package cache
+echo "==> Updating APT package cache"
 sudo apt-get update -y
 
-# Install build-essential
+echo "==> Installing build-essential"
 sudo apt-get install -y build-essential
 
-# Install software-properties-common
+echo "==> Installing software-properties-common"
 sudo apt-get install -y software-properties-common
 
-# Install python-software-properties
+echo "==> Installing python-properties-common"
 sudo apt-get install -y python-software-properties
