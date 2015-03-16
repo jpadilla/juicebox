@@ -1,10 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash -eux
 
-# Exit script immediately on first error.
-set -e
-
-# Print commands and their arguments as they are executed.
-set -x
-
-# Install Go
+echo "==> Installing go"
 sudo apt-get -y install golang-go
