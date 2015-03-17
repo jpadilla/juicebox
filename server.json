@@ -84,7 +84,7 @@
     "compression_level": 9
   }],
   "variables": {
-    "vm_name": "dev-box-hacker",
+    "vm_name": "dev-box-server",
     "cleanup_pause": "0",
     "headless": true,
     "install_vagrant_key": true,
