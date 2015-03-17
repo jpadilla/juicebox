@@ -18,7 +18,7 @@ Both of them build a virtual machine based on `Ubuntu Server 14.04` with the the
 - [Git](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/git.sh)
 - [Go](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/go.sh)
 - [Python 2.7 with pip, virtualenv, and virtualenvwrapper](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/python.sh)
-- [Node.js with nvm](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/node.sh)
+- [io.js with nvm](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/iojs.sh)
 - [MongoDB](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/mongodb.sh)
 - [Redis](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/redis.sh)
 - [PostgreSQL](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/postgresql.sh)

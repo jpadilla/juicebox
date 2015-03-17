@@ -69,7 +69,7 @@
       "script/provisioning/base.sh",
       "script/provisioning/git.sh",
       "script/provisioning/python.sh",
-      "script/provisioning/node.sh",
+      "script/provisioning/iojs.sh",
       "script/provisioning/go.sh",
       "script/provisioning/mongodb.sh",
       "script/provisioning/redis.sh",
