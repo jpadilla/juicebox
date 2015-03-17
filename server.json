@@ -69,7 +69,6 @@
       "script/provisioning/git.sh",
       "script/provisioning/python.sh",
       "script/provisioning/iojs.sh",
-      "script/provisioning/go.sh",
       "script/provisioning/mongodb.sh",
       "script/provisioning/redis.sh",
       "script/provisioning/postgresql.sh",
