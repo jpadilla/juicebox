@@ -1,10 +1,10 @@
-HACKER_BUILD_VERSION ?= 0.0.1
-HACKER_BUILD_NAME ?= dev-box-hacker-$(HACKER_BUILD_VERSION)
-HACKER_BOX_NAME ?= $(HACKER_BUILD_NAME).box
-HACKER_BOX_PATH ?= box/virtualbox/$(HACKER_BOX_NAME)
-HACKER_OVA_NAME ?= $(HACKER_BUILD_NAME).ova
-HACKER_OUTPUT_PATH ?= output-dev-box-hacker
-HACKER_OVA_PATH ?= $(HACKER_OUTPUT_PATH)/$(HACKER_OVA_NAME)
+SERVER_BUILD_VERSION ?= 0.0.1
+SERVER_BUILD_NAME ?= dev-box-server-$(SERVER_BUILD_VERSION)
+SERVER_BOX_NAME ?= $(SERVER_BUILD_NAME).box
+SERVER_BOX_PATH ?= box/virtualbox/$(SERVER_BOX_NAME)
+SERVER_OVA_NAME ?= $(SERVER_BUILD_NAME).ova
+SERVER_OUTPUT_PATH ?= output-dev-box-server
+SERVER_OVA_PATH ?= $(SERVER_OUTPUT_PATH)/$(SERVER_OVA_NAME)
 
 DESKTOP_BUILD_VERSION ?= 0.0.1
 DESKTOP_BUILD_NAME ?= dev-box-desktop-$(DESKTOP_BUILD_VERSION)
@@ -17,16 +17,16 @@ DESKTOP_OVA_PATH ?= $(DESKTOP_OUTPUT_PATH)/$(DESKTOP_OVA_NAME)
 BUCKET_NAME ?= io-blimp-dev-box
 
 clean:
-	rm -rf $(DESKTOP_OUTPUT_PATH) $(HACKER_OUTPUT_PATH)
+	rm -rf $(DESKTOP_OUTPUT_PATH) $(SERVER_OUTPUT_PATH)
 
-hacker:
-	packer build hacker.json
+server:
+	packer build server.json
 
 desktop:
 	packer build desktop.json
 
-upload/hacker:
-	s3cmd put $(HACKER_BOX_PATH) $(HACKER_OVA_PATH) s3://$(BUCKET_NAME)/
+upload/server:
+	s3cmd put $(SERVER_BOX_PATH) $(SERVER_OVA_PATH) s3://$(BUCKET_NAME)/
 
 upload/dev-box-desktop:
 	s3cmd put $(DESKTOP_BOX_PATH) $(DESKTOP_OVA_PATH) s3://$(BUCKET_NAME)/

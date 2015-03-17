@@ -10,7 +10,7 @@ Technical workshops shouldn't be about installing a development environment in L
 
 This project includes two [Packer](https://packer.io/) templates:
 
-- hacker.json - No desktop environment.
+- server.json - No desktop environment.
 - desktop.json - Default Ubuntu desktop environment.
 
 Both of them build a virtual machine based on `Ubuntu Server 14.04` with the the following software installed:
@@ -34,11 +34,11 @@ I'll be building OVA files and Vagrant boxes for each version and hosting them.
 
 ## Building and Uploading
 
-### Hacker
+### Server
 
 ```
-$ make hacker
-$ AWS_ACCESS_KEY_ID='' AWS_SECRET_ACCESS_KEY='' make upload/hacker
+$ make server
+$ AWS_ACCESS_KEY_ID='' AWS_SECRET_ACCESS_KEY='' make upload/server
 ```
 
 ### Desktop
