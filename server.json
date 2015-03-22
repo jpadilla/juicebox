@@ -80,7 +80,7 @@
   "variables": {
     "vm_name": "juicebox-server",
     "cleanup_pause": "0",
-    "headless": true,
+    "headless": false,
     "install_vagrant_key": true,
     "iso_checksum": "3bfa6eac84d527380d0cc52db9092cde127f161e",
     "iso_name": "ubuntu-14.04.2-server-amd64.iso",
@@ -90,7 +90,7 @@
     "ssh_fullname": "juicebox",
     "ssh_password": "juicebox",
     "ssh_username": "juicebox",
-    "update": false,
+    "update": true,
     "version": "1.0.0",
     "juicebox": "server"
   }
