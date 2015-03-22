@@ -36,16 +36,9 @@
     "ssh_wait_timeout": "10000s",
     "vboxmanage": [
       [
-        "modifyvm",
-        "{{.Name}}",
-        "--memory",
-        "512"
-      ],
-      [
-        "modifyvm",
-        "{{.Name}}",
-        "--cpus",
-        "1"
+        "modifyvm", "{{.Name}}",
+        "--memory", "512",
+        "--cpus", "1"
       ]
     ],
     "virtualbox_version_file": ".vbox_version",

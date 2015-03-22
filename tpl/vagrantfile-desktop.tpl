@@ -15,6 +15,5 @@ Vagrant.configure("2") do |config|
         v.customize ["modifyvm", :id, "--ioapic", "on"]
         v.customize ["modifyvm", :id, "--rtcuseutc", "on"]
         v.customize ["modifyvm", :id, "--accelerate3d", "on"]
-        v.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
     end
 end
