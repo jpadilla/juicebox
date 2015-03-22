@@ -1,29 +1,19 @@
 #!/bin/bash
 
 SSH_USER=${SSH_USERNAME:-vagrant}
+LIGHTDM_CONFIG=/etc/lightdm/lightdm.conf
 
 echo "==> Checking version of Ubuntu"
 . /etc/lsb-release
 
 if [[ $DISTRIB_RELEASE == 14.04 ]]; then
-    echo "==> Installing ubunutu-desktop"
-    # apt-get install -y --no-install-recommends ubuntu-desktop
-    # apt-get install -y gnome-terminal
-    apt-get install -y ubuntu-desktop
+  echo "==> Installing xubuntu-desktop"
+  apt-get install -y --no-install-recommends \
+    xubuntu-desktop \
+    xfce4-goodies \
+    xubuntu-icon-theme
 
-    USERNAME=${SSH_USER}
-    LIGHTDM_CONFIG=/etc/lightdm/lightdm.conf
-    GDM_CUSTOM_CONFIG=/etc/gdm/custom.conf
-
-    mkdir -p $(dirname ${GDM_CUSTOM_CONFIG})
-    echo "[daemon]" >> $GDM_CUSTOM_CONFIG
-    echo "# Enabling automatic login" >> $GDM_CUSTOM_CONFIG
-    echo "AutomaticLoginEnable=True" >> $GDM_CUSTOM_CONFIG
-    echo "AutomaticLoginEnable=${USERNAME}" >> $GDM_CUSTOM_CONFIG
-
-    echo "==> Configuring lightdm autologin"
-    #if [ -f $LIGHTDM_CONFIG ]; then
-        echo "[SeatDefaults]" >> $LIGHTDM_CONFIG
-        echo "autologin-user=${USERNAME}" >> $LIGHTDM_CONFIG
-    #fi
+  echo "==> Configuring lightdm autologin"
+  echo "[SeatDefaults]" >> $LIGHTDM_CONFIG
+  echo "autologin-user=${SSH_USER}" >> $LIGHTDM_CONFIG
 fi

@@ -57,7 +57,8 @@
       "UPDATE={{user `update`}}",
       "INSTALL_VAGRANT_KEY={{user `install_vagrant_key`}}",
       "SSH_USERNAME={{user `ssh_username`}}",
-      "SSH_PASSWORD={{user `ssh_password`}}"
+      "SSH_PASSWORD={{user `ssh_password`}}",
+      "JUICEBOX={{user `juicebox`}}"
     ],
     "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
     "scripts": [
@@ -92,11 +93,12 @@
     "iso_name": "ubuntu-14.04.2-server-amd64.iso",
     "iso_path": "iso",
     "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.2-server-amd64.iso",
-    "hostname": "vagrant",
-    "ssh_fullname": "vagrant",
-    "ssh_password": "vagrant",
-    "ssh_username": "vagrant",
+    "hostname": "juicebox",
+    "ssh_fullname": "juicebox",
+    "ssh_password": "juicebox",
+    "ssh_username": "juicebox",
     "update": false,
-    "version": "0.0.1"
+    "version": "0.0.1",
+    "juicebox": "server"
   }
 }

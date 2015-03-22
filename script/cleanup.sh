@@ -1,8 +1,8 @@
 #!/bin/bash -eux
 
 SSH_USER=${SSH_USERNAME:-vagrant}
-
 CLEANUP_PAUSE=${CLEANUP_PAUSE:-0}
+
 echo "==> Pausing for ${CLEANUP_PAUSE} seconds..."
 sleep ${CLEANUP_PAUSE}
 
@@ -12,9 +12,8 @@ rm -rf /dev/.udev/
 rm /lib/udev/rules.d/75-persistent-net-generator.rules
 
 echo "==> Cleaning up leftover dhcp leases"
-# Ubuntu 12.04 & 14.04
 if [ -d "/var/lib/dhcp" ]; then
-    rm /var/lib/dhcp/*
+  rm /var/lib/dhcp/*
 fi
 
 # Add delay to prevent "vagrant reload" from failing
