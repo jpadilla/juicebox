@@ -1,4 +1,4 @@
-# dev-box
+# Juice Box
 
 Based on [boxcutter/ubuntu](https://github.com/boxcutter/ubuntu).
 
@@ -11,22 +11,22 @@ Technical workshops shouldn't be about installing a development environment in L
 This project includes two [Packer](https://packer.io/) templates:
 
 - server.json - No desktop environment.
-- desktop.json - Default Ubuntu desktop environment.
+- desktop.json - Xubuntu desktop environment.
 
 Both of them build a virtual machine based on `Ubuntu Server 14.04` with the the following software installed:
 
-- [Git](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/git.sh)
-- [Go](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/go.sh)
-- [Python 2.7 with pip, virtualenv, and virtualenvwrapper](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/python.sh)
-- [io.js with nvm](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/iojs.sh)
-- [MongoDB](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/mongodb.sh)
-- [Redis](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/redis.sh)
-- [PostgreSQL](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/postgresql.sh)
+- [Git](https://github.com/jpadilla/dev-box/blob/master/scripts/provisioning/git.sh)
+- [Python 2.7 with pip, virtualenv, and virtualenvwrapper](https://github.com/jpadilla/dev-box/blob/master/scripts/provisioning/python.sh)
+- [io.js with nvm](https://github.com/jpadilla/dev-box/blob/master/scripts/provisioning/iojs.sh)
+- [MongoDB](https://github.com/jpadilla/dev-box/blob/master/scripts/provisioning/mongodb.sh)
+- [Redis](https://github.com/jpadilla/dev-box/blob/master/scripts/provisioning/redis.sh)
+- [PostgreSQL](https://github.com/jpadilla/dev-box/blob/master/scripts/provisioning/postgresql.sh)
 
-Desktop version has the following [installed](https://github.com/jpadilla/dev-box/blob/master/script/provisioning/desktop-apps.sh):
+Desktop version has the following installed:
 
-- Sublime Text 3
-- Google Chrome
+- [Sublime Text 3](https://github.com/jpadilla/juicebox/blob/master/scripts/provisioning/sublime-text-3.sh)
+- [Google Chrome](https://github.com/jpadilla/juicebox/blob/master/scripts/provisioning/google-chrome.sh)
+- [Firefox](https://github.com/jpadilla/juicebox/blob/master/scripts/provisioning/firefox.sh)
 
 ## Distributing
 
