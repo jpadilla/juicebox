@@ -34,6 +34,10 @@ I'll be building OVA files and Vagrant boxes for each version and hosting them.
 
 ## Building and Uploading
 
+Requirements:
+- [Packer](https://packer.io/)
+- [S3cmd](http://s3tools.org/s3cmd)
+
 ### Server
 
 ```
