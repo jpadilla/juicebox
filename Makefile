@@ -1,20 +1,22 @@
-SERVER_BUILD_VERSION ?= 0.0.1
-SERVER_BUILD_NAME ?= dev-box-server-$(SERVER_BUILD_VERSION)
+SERVER_BUILD_VERSION ?= 1.0.0
+SERVER_VM_NAME ?= juicebox-server
+SERVER_BUILD_NAME ?= $(SERVER_VM_NAME)-$(SERVER_BUILD_VERSION)
 SERVER_BOX_NAME ?= $(SERVER_BUILD_NAME).box
 SERVER_BOX_PATH ?= box/virtualbox/$(SERVER_BOX_NAME)
 SERVER_OVA_NAME ?= $(SERVER_BUILD_NAME).ova
-SERVER_OUTPUT_PATH ?= output-dev-box-server
+SERVER_OUTPUT_PATH ?= output-$(SERVER_VM_NAME)}
 SERVER_OVA_PATH ?= $(SERVER_OUTPUT_PATH)/$(SERVER_OVA_NAME)
 
-DESKTOP_BUILD_VERSION ?= 0.0.1
-DESKTOP_BUILD_NAME ?= dev-box-desktop-$(DESKTOP_BUILD_VERSION)
+DESKTOP_BUILD_VERSION ?= 1.0.0
+DESKTOP_VM_NAME ?= juicebox-desktop
+DESKTOP_BUILD_NAME ?= $(DESKTOP_VM_NAME)-$(DESKTOP_BUILD_VERSION)
 DESKTOP_BOX_NAME ?= $(DESKTOP_BUILD_NAME).box
 DESKTOP_BOX_PATH ?= box/virtualbox/$(DESKTOP_BOX_NAME)
 DESKTOP_OVA_NAME ?= $(DESKTOP_BUILD_NAME).ova
-DESKTOP_OUTPUT_PATH ?= output-dev-box-desktop
+DESKTOP_OUTPUT_PATH ?= output-$(DESKTOP_VM_NAME)
 DESKTOP_OVA_PATH ?= $(DESKTOP_OUTPUT_PATH)/$(DESKTOP_OVA_NAME)
 
-BUCKET_NAME ?= io-blimp-dev-box
+BUCKET_NAME ?= io-blimp-juicebox
 
 clean:
 	rm -rf $(DESKTOP_OUTPUT_PATH) $(SERVER_OUTPUT_PATH)
@@ -28,5 +30,17 @@ desktop:
 upload/server:
 	s3cmd put $(SERVER_BOX_PATH) $(SERVER_OVA_PATH) s3://$(BUCKET_NAME)/
 
-upload/dev-box-desktop:
+upload/server/box:
+	s3cmd put $(SERVER_BOX_PATH) s3://$(BUCKET_NAME)/
+
+upload/server/ova:
+	s3cmd put $(SERVER_OVA_PATH) s3://$(BUCKET_NAME)/
+
+upload/desktop:
 	s3cmd put $(DESKTOP_BOX_PATH) $(DESKTOP_OVA_PATH) s3://$(BUCKET_NAME)/
+
+upload/desktop/box:
+	s3cmd put $(DESKTOP_BOX_PATH) s3://$(BUCKET_NAME)/
+
+upload/desktop/ova:
+	s3cmd put $(DESKTOP_OVA_PATH) s3://$(BUCKET_NAME)/

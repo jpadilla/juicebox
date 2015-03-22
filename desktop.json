@@ -90,7 +90,7 @@
     "compression_level": 9
   }],
   "variables": {
-    "vm_name": "dev-box-desktop",
+    "vm_name": "juicebox-desktop",
     "cleanup_pause": "0",
     "headless": false,
     "install_vagrant_key": true,
@@ -103,7 +103,7 @@
     "ssh_password": "juicebox",
     "ssh_username": "juicebox",
     "update": true,
-    "version": "0.0.1",
+    "version": "1.0.0",
     "juicebox": "desktop"
   }
 }
