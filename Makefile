@@ -28,19 +28,19 @@ desktop:
 	packer build desktop.json
 
 upload/server:
-	s3cmd put $(SERVER_BOX_PATH) $(SERVER_OVA_PATH) s3://$(BUCKET_NAME)/
+	s3cmd --access_key=$(AWS_ACCESS_KEY_ID) --secret_key=$(AWS_SECRET_ACCESS_KEY) put $(SERVER_BOX_PATH) $(SERVER_OVA_PATH) s3://$(BUCKET_NAME)/
 
 upload/server/box:
-	s3cmd put $(SERVER_BOX_PATH) s3://$(BUCKET_NAME)/
+	s3cmd --access_key=$(AWS_ACCESS_KEY_ID) --secret_key=$(AWS_SECRET_ACCESS_KEY) put $(SERVER_BOX_PATH) s3://$(BUCKET_NAME)/
 
 upload/server/ova:
-	s3cmd put $(SERVER_OVA_PATH) s3://$(BUCKET_NAME)/
+	s3cmd --access_key=$(AWS_ACCESS_KEY_ID) --secret_key=$(AWS_SECRET_ACCESS_KEY) put $(SERVER_OVA_PATH) s3://$(BUCKET_NAME)/
 
 upload/desktop:
-	s3cmd put $(DESKTOP_BOX_PATH) $(DESKTOP_OVA_PATH) s3://$(BUCKET_NAME)/
+	s3cmd --access_key=$(AWS_ACCESS_KEY_ID) --secret_key=$(AWS_SECRET_ACCESS_KEY) put $(DESKTOP_BOX_PATH) $(DESKTOP_OVA_PATH) s3://$(BUCKET_NAME)/
 
 upload/desktop/box:
-	s3cmd put $(DESKTOP_BOX_PATH) s3://$(BUCKET_NAME)/
+	s3cmd --access_key=$(AWS_ACCESS_KEY_ID) --secret_key=$(AWS_SECRET_ACCESS_KEY) put $(DESKTOP_BOX_PATH) s3://$(BUCKET_NAME)/
 
 upload/desktop/ova:
-	s3cmd put $(DESKTOP_OVA_PATH) s3://$(BUCKET_NAME)/
+	s3cmd --access_key=$(AWS_ACCESS_KEY_ID) --secret_key=$(AWS_SECRET_ACCESS_KEY) put $(DESKTOP_OVA_PATH) s3://$(BUCKET_NAME)/
