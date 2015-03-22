@@ -10,4 +10,4 @@ sudo rm  sublime-text_build-3065_amd64.deb
 
 echo "==> Installing Package Control"
 sudo wget --directory-prefix="/home/${SSH_USER}/.config/sublime-text-3/Installed Packages" "https://packagecontrol.io/Package Control.sublime-package"
-sudo chown -R ${SSH_USER}:${SSH_USER} /home/${SSH_USER}/.config/sublime-text-3
+sudo chown -R ${SSH_USER}:${SSH_USER} /home/${SSH_USER}/.config
