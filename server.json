@@ -53,7 +53,7 @@
       "SSH_PASSWORD={{user `ssh_password`}}",
       "JUICEBOX={{user `juicebox`}}"
     ],
-    "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+    "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
     "scripts": [
       "scripts/update.sh",
       "scripts/vagrant.sh",
