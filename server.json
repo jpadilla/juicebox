@@ -38,7 +38,8 @@
       [
         "modifyvm", "{{.Name}}",
         "--memory", "512",
-        "--cpus", "1"
+        "--cpus", "1",
+        "--clipboard", "bidirectional"
       ]
     ],
     "virtualbox_version_file": ".vbox_version",
