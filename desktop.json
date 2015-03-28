@@ -47,6 +47,19 @@
     "output_directory": "output-{{user `vm_name`}}"
   }],
   "provisioners": [{
+    "type": "shell",
+    "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+    "environment_vars": [
+      "SSH_USERNAME={{user `ssh_username`}}"
+    ],
+    "script": "scripts/data.sh"
+  }, {
+    "type": "file",
+    "source": "assets",
+    "destination": "/data"
+  }, {
+    "type": "shell",
+    "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
     "environment_vars": [
       "CLEANUP_PAUSE={{user `cleanup_pause`}}",
       "UPDATE={{user `update`}}",
@@ -55,7 +68,6 @@
       "SSH_PASSWORD={{user `ssh_password`}}",
       "JUICEBOX={{user `juicebox`}}"
     ],
-    "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
     "scripts": [
       "scripts/update.sh",
       "scripts/desktop.sh",
@@ -72,10 +84,10 @@
       "scripts/provisioning/sublime-text-3.sh",
       "scripts/provisioning/google-chrome.sh",
       "scripts/provisioning/firefox.sh",
+      "scripts/provisioning/desktop.sh",
       "scripts/minimize.sh",
       "scripts/cleanup.sh"
-    ],
-    "type": "shell"
+    ]
   }],
   "post-processors": [{
     "keep_input_artifact": true,
