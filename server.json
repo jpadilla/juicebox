@@ -67,6 +67,7 @@
       "scripts/provisioning/mongodb.sh",
       "scripts/provisioning/redis.sh",
       "scripts/provisioning/postgresql.sh",
+      "scripts/provisioning/docker.sh",
       "scripts/minimize.sh",
       "scripts/cleanup.sh"
     ],
