@@ -23,6 +23,8 @@ echo "==> Setting up desktop and panels"
 sudo cp -r ${ASSETS_DIR}/xfce4 ${CONFIG_DIR}
 sudo chown -R ${SSH_USER}:${SSH_USER} ${CONFIG_DIR}
 
-echo "==> Copying README.html"
-sudo cp  ${ASSETS_DIR}/README.html ${DESKTOP_DIR}/
+echo "==> Downloading README.html"
+sudo curl -o ${DESKTOP_DIR}/README.html \
+  -H "Accept: application/vnd.github.v3.html" \
+  "https://api.github.com/repos/jpadilla/juicebox/contents/README.md"
 sudo chown  ${SSH_USER}:${SSH_USER} ${DESKTOP_DIR}/README.html
