@@ -37,7 +37,7 @@
     "vboxmanage": [
       [
         "modifyvm", "{{.Name}}",
-        "--memory", "512",
+        "--memory", "1024",
         "--cpus", "1",
         "--clipboard", "bidirectional",
         "--draganddrop", "bidirectional"
