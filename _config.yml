@@ -1,0 +1,13 @@
+# Permalinks
+permalink:        pretty
+
+# Settings
+markdown:         kramdown
+destination:      ./_gh_pages
+exclude:          ["README.md"]
+paginate:         10
+encoding:         UTF-8
+future:           false
+name:             Juice Box
+# url:              http://builtwithember.io
+description:      "A virtual machine designed for programming workshops."

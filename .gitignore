@@ -23,11 +23,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+Gemfile.lock
 
-### Vagrant ###
-.vagrant/
+# Ignore bundler config
+/.bundle
 
-# Packer
-packer_cache/
-output-*
-*.box
+# Ignore the build directory
+/public

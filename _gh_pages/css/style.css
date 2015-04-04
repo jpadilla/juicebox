@@ -1,0 +1,181 @@
+/*
+  Apply a natural box layout model to all elements,
+  but allowing components to change.
+*/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+/*
+  Top-level elements
+ */
+body {
+  color: #565656;
+}
+
+a {
+  color: #26ACC0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #E6E6E6;
+  margin: 40px auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 960px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+
+/*
+  Components
+ */
+
+/* lang-menu */
+.lang-menu {
+  display:flex;
+  justify-content: flex-end
+}
+.lang-menu__link {
+  padding: 10px 15px;
+}
+.lang-menu__link:hover {
+  background-color: #F2F2F2;
+}
+.lang-menu__link--selected {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* hero */
+.hero {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hero__item {
+  padding: 0 20px;
+}
+.hero__item--right {
+  max-width: 500px;
+}
+.hero__tagline {
+  font-size: 35px;
+  font-weight: 100;
+}
+
+/* section-title */
+.section-title {
+  display:flex;
+  justify-content:center;
+}
+.section-title__text {
+  font-size: 35px;
+}
+
+/* how-to-step */
+.how-to-step {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.how-to-step--featured {
+  background-color: #EDFDFF;
+  border-top: 1px solid #26ACC0;
+  border-bottom: 1px solid #26ACC0;
+  padding: 30px 0;
+}
+.how-to-step--no-button {
+  justify-content: flex-start;
+}
+.how-to-step__wrapper {
+  padding: 20px;
+  width: 960px;
+  margin: 0 auto;
+}
+.how-to-step__number {
+  display: inline-block;
+  color: white;
+  background-color: #26ACC0;
+  font-size: 30px;
+  height:70px;
+  width: 70px;
+  text-align:center;
+  line-height: 70px;
+  border-radius: 50%;
+}
+.how-to-step__text {
+  display: inline-block;
+  max-width: 500px;
+  font-size: 30px;
+}
+.how-to-step__text--no-button {
+  margin-left: 80px;
+  max-width: 750px;
+}
+
+/* screenshot */
+.screenshot {
+  display:flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* footer */
+footer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.footer-menu__link {
+  margin-right: 10px;
+}
+
+.footer-menu__link:last-child {
+  margin-right: 0;
+}
+
+/* buttons */
+.button {
+  display: inline-block;
+  border-radius: 3px;
+  padding: 10px 20px;
+}
+.button:hover {
+  text-decoration: none;
+}
+.button--primary {
+  background-color: #26ACC0;
+  color: white;
+}
+.button--primary:hover {
+  background-color: #1B849B;
+}
+.button--download {
+  background-color: transparent;
+  border: 2px solid #26ACC0;
+}
+.button--download:hover {
+  color: #1B849B;
+  border: 2px solid #1B849B;
+}
