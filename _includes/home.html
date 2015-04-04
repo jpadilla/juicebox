@@ -1,12 +1,12 @@
 <div class="container">
   <div class="lang-menu">
-    <a href="/" class="lang-menu__link {% if page.lang == 'en' %}lang-menu__link--selected{% endif %}">English</a>
-    <a href="/es" class="lang-menu__link {% if page.lang == 'es' %}lang-menu__link--selected{% endif %}">Español</a>
+    <a href="{{ site.url }}/" class="lang-menu__link {% if page.lang == 'en' %}lang-menu__link--selected{% endif %}">English</a>
+    <a href="{{ site.url }}/es" class="lang-menu__link {% if page.lang == 'es' %}lang-menu__link--selected{% endif %}">Español</a>
   </div>
 
   <div class="hero">
     <div class="hero__item">
-      <img src="/img/juicebox-artwork.png" alt="Juice Box Artwork">
+      <img src="{{ site.url }}/img/juicebox-artwork.png" alt="Juice Box Artwork">
     </div>
     <div class="hero__item hero__item--right">
       <h3 class="hero__tagline">{{ site.data.translations.[page.lang].tagline }}</h3>
@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="screenshot">
-    <img src="/img/virtualbox-screenshot.png">
+    <img src="{{ site.url }}/img/virtualbox-screenshot.png">
   </div>
 </div>
 
@@ -50,7 +50,7 @@
     <div><span class="how-to-step__text how-to-step__text--no-button">{{ site.data.translations.[page.lang].import_juicebox }}</span></div>
   </div>
   <div class="screenshot">
-    <img src="/img/import-screenshot.png">
+    <img src="{{ site.url }}/img/import-screenshot.png">
   </div>
 
   <hr>
@@ -59,14 +59,14 @@
     <h4 class="section-title__text">{{ site.data.translations.[page.lang].whats_in_the_box }}</h4>
   </div>
   <div class="screenshot">
-    <img src="/img/tech-logos.png">
+    <img src="{{ site.url }}/img/tech-logos.png">
   </div>
 
   <hr>
 
   <footer>
     <div class="footer__logo">
-      <img src="/img/footer-logo.png">
+      <img src="{{ site.url }}/img/footer-logo.png">
     </div>
     <div class="footer-menu">
       <a href="{{ site.data.links.other_versions }}" class="footer-menu__link">{{ site.data.translations.[page.lang].other_versions }}</a>
