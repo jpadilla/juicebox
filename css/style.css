@@ -102,6 +102,7 @@ img {
   border-top: 1px solid #26ACC0;
   border-bottom: 1px solid #26ACC0;
   padding: 30px 0;
+  margin-bottom: 50px;
 }
 .how-to-step--no-button {
   justify-content: flex-start;
