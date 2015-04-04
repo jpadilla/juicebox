@@ -30,3 +30,5 @@ Gemfile.lock
 
 # Ignore the build directory
 /public
+
+/_gh_pages

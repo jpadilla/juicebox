@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="lang-menu">
+    <a href="/" class="lang-menu__link {% if page.lang == 'en' %}lang-menu__link--selected{% endif %}">English</a>
+    <a href="/es" class="lang-menu__link {% if page.lang == 'es' %}lang-menu__link--selected{% endif %}">Español</a>
+  </div>
+
+  <div class="hero">
+    <div class="hero__item">
+      <img src="/img/juicebox-artwork.png" alt="Juice Box Artwork">
+    </div>
+    <div class="hero__item hero__item--right">
+      <h3 class="hero__tagline">{{ site.data.translations.[page.lang].tagline }}</h3>
+      <a href="#get-started" class="button button--primary">{{ site.data.translations.[page.lang].get_started }}</a>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="section-title" id="get-started">
+    <h4 class="section-title__text">{{ site.data.translations.[page.lang].how_to_use_juice_box }}</h4>
+  </div>
+
+  <div class="how-to-step">
+    <div><span class="how-to-step__number">1</span></div>
+    <div><span class="how-to-step__text">{{ site.data.translations.[page.lang].download_latest_virtualbox }}</span></div>
+    <div>
+      <a href="{{ site.data.links.download_virtualbox }}" class="button button--download">{{ site.data.translations.[page.lang].download_virtualbox }}</a>
+    </div>
+  </div>
+  <div class="screenshot">
+    <img src="/img/virtualbox-screenshot.png">
+  </div>
+</div>
+
+<div class="how-to-step--featured">
+  <div class="how-to-step__wrapper">
+    <div class="how-to-step">
+      <div><span class="how-to-step__number">2</span></div>
+      <div><span class="how-to-step__text">{{ site.data.translations.[page.lang].download_latest_juicebox }}</span></div>
+      <div>
+        <a href="{{ site.data.links.download_juicebox }}" class="button button--download">{{ site.data.translations.[page.lang].download_juicebox }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="how-to-step how-to-step--no-button">
+    <div><span class="how-to-step__number">3</span></div>
+    <div><span class="how-to-step__text how-to-step__text--no-button">{{ site.data.translations.[page.lang].import_juicebox }}</span></div>
+  </div>
+  <div class="screenshot">
+    <img src="/img/import-screenshot.png">
+  </div>
+
+  <hr>
+
+  <div class="section-title">
+    <h4 class="section-title__text">{{ site.data.translations.[page.lang].whats_in_the_box }}</h4>
+  </div>
+  <div class="screenshot">
+    <img src="/img/tech-logos.png">
+  </div>
+
+  <hr>
+
+  <footer>
+    <div class="footer__logo">
+      <img src="/img/footer-logo.png">
+    </div>
+    <div class="footer-menu">
+      <a href="{{ site.data.links.other_versions }}" class="footer-menu__link">{{ site.data.translations.[page.lang].other_versions }}</a>
+      <a href="{{ site.data.links.report_bugs }}" class="footer-menu__link">{{ site.data.translations.[page.lang].report_bugs }}</a>
+      <a href="{{ site.data.links.github_repo }}" class="footer-menu__link">{{ site.data.translations.[page.lang].source_on_github }}</a>
+      <a href="{{ site.data.links.contact }}" class="footer-menu__link">{{ site.data.translations.[page.lang].contact }}</a>
+    </div>
+  </footer>
+</div>
