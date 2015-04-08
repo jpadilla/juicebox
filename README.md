@@ -1,5 +1,7 @@
 # Juice Box
 
+A virtual machine designed for programming workshops.
+
 Based on [boxcutter/ubuntu](https://github.com/boxcutter/ubuntu).
 
 ## Reason
