@@ -2,6 +2,8 @@
 
 A virtual machine designed for programming workshops.
 
+![screenshot](https://cloud.githubusercontent.com/assets/83319/6881507/2d79b776-d538-11e4-853a-f4390f324042.png)
+
 Based on [boxcutter/ubuntu](https://github.com/boxcutter/ubuntu).
 
 ## Reason
