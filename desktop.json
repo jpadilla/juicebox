@@ -78,6 +78,7 @@
       "scripts/provisioning/git.sh",
       "scripts/provisioning/python.sh",
       "scripts/provisioning/iojs.sh",
+      "scripts/provisioning/ruby.sh",
       "scripts/provisioning/mongodb.sh",
       "scripts/provisioning/redis.sh",
       "scripts/provisioning/postgresql.sh",
@@ -111,7 +112,7 @@
     "ssh_password": "juicebox",
     "ssh_username": "juicebox",
     "update": true,
-    "version": "1.1.0",
+    "version": "1.2.0",
     "juicebox": "desktop"
   }
 }
