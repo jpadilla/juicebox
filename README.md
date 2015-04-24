@@ -8,7 +8,7 @@ Based on [boxcutter/ubuntu](https://github.com/boxcutter/ubuntu).
 
 ## Reason
 
-Technical workshops shouldn't be about installing a development environment in Linux, Windows, OS X, or whatever else. Unless that's what they are about, this takes way to much time from everyone and it's a pain.
+Technical workshops shouldn't be about installing a development environment in Linux, Windows, OS X, or whatever else. Unless that's what they are about, this takes way too much time from everyone and it's a pain.
 
 ## Specs
 
