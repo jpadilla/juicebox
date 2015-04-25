@@ -30,7 +30,7 @@ desktop:
 	cd $(DESKTOP_OUTPUT_PATH) && zip -X $(DESKTOP_OVA_NAME).zip $(DESKTOP_OVA_NAME)
 	cd $(BOX_OUTPUT_PATH) && zip -X $(DESKTOP_BOX_NAME).zip $(DESKTOP_BOX_NAME)
 
-clean: cleanup/server cleanup/desktop
+clean: clean/server clean/desktop
 
 clean/server:
 	rm -rf $(SERVER_OUTPUT_PATH) $(SERVER_BOX_PATH)
