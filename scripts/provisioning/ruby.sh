@@ -13,6 +13,9 @@ source ~/.rvm/scripts/rvm
 echo "==> Installing Ruby 2.1"
 rvm use --install --default 2.1
 rvm cleanup all
+
+echo "==> Silencing RVM path mismatch warning"
+echo rvm_silence_path_mismatch_check_flag=1 >> ~/.rvmrc
 EOF
 
 chown -R ${SSH_USER}:${SSH_USER} /home/${SSH_USER}
