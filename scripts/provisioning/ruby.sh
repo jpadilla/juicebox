@@ -12,6 +12,7 @@ source ~/.rvm/scripts/rvm
 
 echo "==> Installing Ruby 2.1"
 rvm use --install --default 2.1
+rvm cleanup all
 EOF
 
 chown -R ${SSH_USER}:${SSH_USER} /home/${SSH_USER}
