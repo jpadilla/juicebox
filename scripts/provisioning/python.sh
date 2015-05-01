@@ -11,7 +11,7 @@ libreadline-dev libsqlite3-dev wget curl llvm
 
 echo "==> Preparing Pyenv configuration."
 cat <<EOF >> /home/${SSH_USER}/.bashrc
-export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="\$HOME/.pyenv/bin:\$PATH"
 eval "\$(pyenv init -)"
 eval "\$(pyenv virtualenv-init -)"
 EOF
