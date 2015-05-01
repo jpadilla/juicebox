@@ -112,7 +112,7 @@
     "ssh_password": "juicebox",
     "ssh_username": "juicebox",
     "update": true,
-    "version": "1.2.0",
+    "version": "1.3.0",
     "juicebox": "desktop"
   }
 }
