@@ -14,8 +14,8 @@ eval "\$(pyenv init -)"
 eval "\$(pyenv virtualenv-init -)"
 EOF
 
-su ${SSH_USER} <<EOF
 echo "==> Installing Pyenv"
+su ${SSH_USER} <<EOF
 curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 source ~/.bashrc
 /home/${SSH_USER}/.pyenv/bin/pyenv install 2.7.9
