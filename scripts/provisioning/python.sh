@@ -2,6 +2,8 @@
 
 SSH_USER=${SSH_USERNAME:-vagrant}
 
+export HOME=/home/${SSH_USER}
+
 echo "==> Installing Pyenv build tools"
 # From https://github.com/yyuu/pyenv/wiki/Common-build-problems
 sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
