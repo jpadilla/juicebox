@@ -18,11 +18,9 @@ su ${SSH_USER} <<EOF
 echo "==> Installing Pyenv"
 curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 source ~/.bashrc
-EOF
-
-export PYENV_ROOT=/home/${SSH_USER}/.pyenv
 /home/${SSH_USER}/.pyenv/bin/pyenv install 2.7.9
 /home/${SSH_USER}/.pyenv/bin/pyenv install 3.4.3
 /home/${SSH_USER}/.pyenv/bin/pyenv global 2.7.9
+EOF
 
 chown -R ${SSH_USER}:${SSH_USER} /home/${SSH_USER}
