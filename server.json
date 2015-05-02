@@ -69,6 +69,7 @@
       "scripts/provisioning/redis.sh",
       "scripts/provisioning/postgresql.sh",
       "scripts/provisioning/docker.sh",
+      "scripts/provisioning/vim-nox.sh",
       "scripts/minimize.sh",
       "scripts/cleanup.sh"
     ],
