@@ -1,4 +1,4 @@
-download_juicebox: "https://io-blimp-juicebox.s3.amazonaws.com/juicebox-desktop-1.2.0.ova"
+download_juicebox: "https://io-blimp-juicebox.s3.amazonaws.com/juicebox-desktop-1.3.0.ova"
 other_versions: "https://github.com/jpadilla/juicebox/releases"
 report_bugs: "https://github.com/jpadilla/juicebox/issues/new"
 github_repo: "https://github.com/jpadilla/juicebox"
