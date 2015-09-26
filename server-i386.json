@@ -1,0 +1,99 @@
+{
+  "builders": [{
+    "vm_name": "{{user `vm_name`}}-{{user `version`}}",
+    "type": "virtualbox-iso",
+    "format": "ova",
+    "boot_command": [
+      "<esc><esc><enter><wait>",
+      "/install/vmlinuz noapic ",
+      "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+      "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+      "hostname={{ user `hostname` }} ",
+      "fb=false debconf/frontend=noninteractive ",
+      "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
+      "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+      "passwd/user-fullname={{ user `ssh_fullname` }} ",
+      "passwd/user-password={{ user `ssh_password` }} ",
+      "passwd/user-password-again={{ user `ssh_password` }} ",
+      "passwd/username={{ user `ssh_username` }} ",
+      "initrd=/install/initrd.gz -- <enter>"
+    ],
+    "disk_size": 10140,
+    "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+    "guest_os_type": "Ubuntu_64",
+    "hard_drive_interface": "sata",
+    "headless": "{{ user `headless` }}",
+    "http_directory": "http",
+    "iso_checksum": "{{ user `iso_checksum` }}",
+    "iso_checksum_type": "sha1",
+    "iso_urls": [
+      "{{ user `iso_path` }}/{{ user `iso_name` }}",
+      "{{ user `iso_url` }}"
+    ],
+    "shutdown_command": "echo '{{ user `ssh_password` }}' | sudo -S shutdown -P now",
+    "ssh_password": "{{ user `ssh_password` }}",
+    "ssh_username": "{{ user `ssh_username` }}",
+    "ssh_wait_timeout": "10000s",
+    "vboxmanage": [
+      [
+        "modifyvm", "{{.Name}}",
+        "--memory", "512",
+        "--cpus", "1",
+        "--clipboard", "bidirectional"
+      ]
+    ],
+    "virtualbox_version_file": ".vbox_version",
+    "output_directory": "output-{{user `vm_name`}}"
+  }],
+  "provisioners": [{
+    "environment_vars": [
+      "CLEANUP_PAUSE={{user `cleanup_pause`}}",
+      "UPDATE={{user `update`}}",
+      "INSTALL_VAGRANT_KEY={{user `install_vagrant_key`}}",
+      "SSH_USERNAME={{user `ssh_username`}}",
+      "SSH_PASSWORD={{user `ssh_password`}}",
+      "JUICEBOX={{user `juicebox`}}"
+    ],
+    "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+    "scripts": [
+      "scripts/update.sh",
+      "scripts/vagrant.sh",
+      "scripts/sshd.sh",
+      "scripts/vmtool.sh",
+      "scripts/provisioning/base.sh",
+      "scripts/provisioning/git.sh",
+      "scripts/provisioning/python.sh",
+      "scripts/provisioning/nodejs.sh",
+      "scripts/provisioning/ruby.sh",
+      "scripts/provisioning/mongodb.sh",
+      "scripts/provisioning/redis.sh",
+      "scripts/provisioning/postgresql.sh",
+      "scripts/minimize.sh",
+      "scripts/cleanup.sh"
+    ],
+    "type": "shell"
+  }],
+  "post-processors": [{
+    "type": "vagrant",
+    "keep_input_artifact": true,
+    "output": "box/{{.Provider}}/{{user `vm_name`}}-{{user `version`}}.box",
+    "compression_level": 9
+  }],
+  "variables": {
+    "vm_name": "juicebox-server-i386",
+    "cleanup_pause": "0",
+    "headless": "false",
+    "install_vagrant_key": "true",
+    "iso_checksum": "a01ef934fe61e8fbbb78d644f9703177a9b62ca1",
+    "iso_name": "ubuntu-14.04.3-server-i386.iso",
+    "iso_path": "iso",
+    "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-i386.iso",
+    "hostname": "juicebox",
+    "ssh_fullname": "juicebox",
+    "ssh_password": "juicebox",
+    "ssh_username": "juicebox",
+    "update": "true",
+    "version": "1.4.0",
+    "juicebox": "server"
+  }
+}
