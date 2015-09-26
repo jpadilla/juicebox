@@ -101,18 +101,18 @@
   "variables": {
     "vm_name": "juicebox-desktop",
     "cleanup_pause": "0",
-    "headless": false,
-    "install_vagrant_key": true,
-    "iso_checksum": "3bfa6eac84d527380d0cc52db9092cde127f161e",
-    "iso_name": "ubuntu-14.04.2-server-amd64.iso",
+    "headless": "false",
+    "install_vagrant_key": "true",
+    "iso_checksum": "0501c446929f713eb162ae2088d8dc8b6426224a",
+    "iso_name": "ubuntu-14.04.3-server-amd64.iso",
     "iso_path": "iso",
-    "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.2-server-amd64.iso",
+    "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso",
     "hostname": "juicebox",
     "ssh_fullname": "juicebox",
     "ssh_password": "juicebox",
     "ssh_username": "juicebox",
-    "update": true,
-    "version": "1.3.0",
+    "update": "true",
+    "version": "1.4.0",
     "juicebox": "desktop"
   }
 }
